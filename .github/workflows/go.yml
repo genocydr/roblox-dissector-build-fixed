@@ -32,8 +32,8 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v2
-      
-    - uses: actions/cache@v2
+
+    - uses: actions/cache@v3
       with:
         path: ~/go/pkg/mod
         key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
@@ -67,8 +67,7 @@ jobs:
       run: cp ~/windivert/WinDivert-2.2.0-A/x64/WinDivert{64.sys,.dll} /c/artifacts
     
     - name: Upload artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: windows-binary
         path: C:\artifacts
-
